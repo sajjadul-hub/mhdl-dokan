@@ -1,0 +1,4 @@
+#heroImg {
+    background-image:linear-gradient(rgba(236, 230, 230, 0.856),white) ,url('../../../assets/images/BannerImg.webp');
+    height: 838px;
+}
