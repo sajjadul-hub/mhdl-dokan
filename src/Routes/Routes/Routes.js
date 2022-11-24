@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import DeshbordLayout from '../../LayOut/DeshbordLayout';
 import Main from '../../LayOut/Main';
 import Appointment from '../../Pages/Appointment/Appointment/Appointment';
+import Detail from '../../Pages/Appointment/AvailableAppointments/Detail';
 import AddDoctor from '../../Pages/Dashbord/AddDoctor/AddDoctor';
 import AllUsers from '../../Pages/Dashbord/AllUsers/AllUsers';
 import MyAppointment from '../../Pages/Dashbord/Dashbord/MyAppointment/MyAppointment';
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
             {
                 path: '/appointment',
                 element: <Appointment></Appointment>
+            },
+            {
+                path: '/detail/:id',
+                element:<PrivateRoute> <Detail></Detail></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:5000/allServices/${params.id}`)
             }
         ]
     },

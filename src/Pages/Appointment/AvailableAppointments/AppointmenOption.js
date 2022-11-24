@@ -1,17 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AppointmenOption = ({ appointmenOption,setTreatment }) => {
-    const { name, slots,price } = appointmenOption;
+    const { name, Description,img ,id} = appointmenOption;
     return (
         <div className="card bg-base-100 shadow-xl">
-            <div className="card-body text-center">
-                <h2 className="text-2xl font-bold text-primary">{name}</h2>
-                <p>{slots.length > 0 ? slots[0] :'Try Another day'}</p>
-                <p>{slots.length} {slots.length >1 ? 'spaces':'space'}</p>
-                <p><small>price: ${price}</small></p>
+            <div className="card-body">
+                <img style={{height:"300px"}} src={img} alt=''></img>
+                <h2 className="text-3xl font-bold">{name}</h2>
+                {/* <p>{slots.length} {slots.length >1 ? 'spaces':'space'}</p> */}
+                <p>{Description}</p>
                 <div className="card-actions justify-center">
+                    <button  className="btn btn-primary text-white"><Link to={`/detail/${id}`}>See Details</Link></button>
                     <label 
-                   disabled={slots.length===0}
                     onClick={()=>setTreatment(appointmenOption)}
                     htmlFor="booking-model"
                  className="btn btn-primary text-white">Book Appointment</label>

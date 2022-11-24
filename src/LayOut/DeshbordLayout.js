@@ -10,7 +10,8 @@ const DeshbordLayout = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="drawer drawer-mobile">
+            <hr/>
+            <div className="drawer drawer-mobile mt-5">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <Outlet></Outlet>

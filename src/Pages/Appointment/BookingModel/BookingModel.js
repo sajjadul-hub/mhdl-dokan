@@ -10,17 +10,14 @@ const BookingModel = ({ treatment, setTreatment, selectedDate, refetch }) => {
     const handleBooking = event => {
         event.preventDefault();
         const form = event.target;
-        const slot = form.slot.value;
-        const patient = form.name.value;
+        const buyerName = form.name.value;
         const email = form.email.value;
         const phone = form.phone.value;
 
         const booking = {
             appointmentDate: data,
-            treatment: name,
-            patient,
-            slot,
             email,
+            buyerName,
             phone,
             price
         }

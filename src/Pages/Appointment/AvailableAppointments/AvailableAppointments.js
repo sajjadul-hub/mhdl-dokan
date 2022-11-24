@@ -12,7 +12,7 @@ const AvailableAppointments = ({ selectedDate }) => {
     const { data: appointmenOptions = [], refetch, isLoading } = useQuery({
         queryKey: ['appointmentOptions', date],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/appointmentOptions?date=${date}`)
+            const res = await fetch('http://localhost:5000/appointmentOptions')
             const data = await res.json();
             return data;
         }
@@ -22,7 +22,6 @@ const AvailableAppointments = ({ selectedDate }) => {
     }
     return (
         <section className='my-16'>
-            <p className='text-center text-secondary font-bold'>Available Appointments on {format(selectedDate, 'PP')}</p>
             <div className='mt-10 grid gap-8 lg:grid-cols-3 md:grid-cols-2'>
                 {
                     appointmenOptions.map(appointmenOption => <AppointmenOption key={appointmenOption._id} appointmenOption={appointmenOption}
