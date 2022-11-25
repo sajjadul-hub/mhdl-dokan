@@ -2,7 +2,7 @@ import React from 'react';
 import { FaEye, FaStar } from 'react-icons/fa';
 
 
-const Item = ({ delait}) => {
+const Item = ({ delait,setTreatment}) => {
     const { details, title, img, price, rating, total_view
     } = delait;
     return (
@@ -19,6 +19,7 @@ const Item = ({ delait}) => {
                     </div>
                     <div>
                         <label
+                        onClick={()=>setTreatment(delait)}
                             htmlFor="booking-model"
                             className="btn btn-primary text-white">Buy Now</label>
                     </div>

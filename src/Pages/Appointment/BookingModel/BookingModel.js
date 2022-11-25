@@ -1,11 +1,10 @@
-import { format } from 'date-fns';
+
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
-const BookingModel = ({ treatment, setTreatment, selectedDate, refetch }) => {
-    const { name, slots,price } = treatment;
-    const data = format(selectedDate, 'PP');
+const BookingModel = ({ treatment, setTreatment, refetch }) => {
+    const { title,price } = treatment;
     const { user } = useContext(AuthContext);
     const handleBooking = event => {
         event.preventDefault();
@@ -13,14 +12,17 @@ const BookingModel = ({ treatment, setTreatment, selectedDate, refetch }) => {
         const buyerName = form.name.value;
         const email = form.email.value;
         const phone = form.phone.value;
+        const price = form.price.value;
+        const laptopName = form.laptopName.value;
 
         const booking = {
-            appointmentDate: data,
-            email,
             buyerName,
+            email,
             phone,
+            laptopName,
             price
         }
+        console.log(booking);
         //Todo: send data to the server
         //and once data is saved then close the model
         // and display success toast  
@@ -37,7 +39,6 @@ const BookingModel = ({ treatment, setTreatment, selectedDate, refetch }) => {
                 if (data.acknowledged) {
                     setTreatment(null);
                     toast.success('Booking confirmed')
-                    refetch();
                 }
                 else{
                     toast.error(data.message)
@@ -51,19 +52,15 @@ const BookingModel = ({ treatment, setTreatment, selectedDate, refetch }) => {
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor="booking-model" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-lg font-bold">{name}</h3>
+                    <h3 className="text-xl font-bold text-center">{title}</h3>
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
-                        <input type="text" disabled value={data} className="input input-bordered w-full" />
-                        <select name='slot' className="select select-bordered w-full">
-                            {
-                                slots.map((slot, i) => <option key={i} value={slot}>{slot}</option>)
-                            }
-                        </select>
+                        <input type='text' name="laptopName" disabled value={title} className="input input-bordered w-full font-bold" />
+                        <input type='number' name="price" disabled value={price} className="input input-bordered w-full font-bold" />
                         <input name='name' type="text" placeholder="Your name" defaultValue={user?.displayName} disabled readOnly className="input input-bordered w-full" required />
                         <input name='email' defaultValue={user?.email} type="email" placeholder="Email Address" className="input input-bordered w-full" disabled readOnly required />
                         <input name='phone' type="number" placeholder="Phone Number" className="input input-bordered w-full" />
                         <br />
-                        <input type="submit" className="w-full btn btn-accent text-white" value='submit' />
+                        <input type="submit" className="w-full  btn btn-primary  bg-gradient-to-r from-primary  to-secondary text-white text-lg" value='submit' />
                     </form>
                 </div>
             </div>

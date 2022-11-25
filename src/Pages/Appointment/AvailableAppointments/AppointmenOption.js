@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AppointmenOption = ({ appointmenOption,setTreatment }) => {
+const AppointmenOption = ({ appointmenOption }) => {
     const { name, Description,img ,id} = appointmenOption;
     return (
         <div className="card bg-base-100 shadow-xl">
@@ -12,10 +12,6 @@ const AppointmenOption = ({ appointmenOption,setTreatment }) => {
                 <p>{Description}</p>
                 <div className="card-actions justify-center">
                     <button  className="btn btn-primary text-white"><Link to={`/detail/${id}`}>See Details</Link></button>
-                    <label 
-                    onClick={()=>setTreatment(appointmenOption)}
-                    htmlFor="booking-model"
-                 className="btn btn-primary text-white">Book Appointment</label>
                 </div>
             </div>
         </div>
