@@ -49,7 +49,7 @@ const { data: doctors, isLoading,refetch } = useQuery({
     }
     return (
         <div>
-            <h2 className="text-3xl mb-3">Manage Doctors: {doctors?.length}</h2>
+            <h2 className="text-4xl my-5 text-center font-bold">Total Seller : {doctors?.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
@@ -58,7 +58,7 @@ const { data: doctors, isLoading,refetch } = useQuery({
                             <th>Avatar</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Specialty</th>
+                            <th>Selling Product</th>
                             <th>Action</th>
                         </tr>
                     </thead>

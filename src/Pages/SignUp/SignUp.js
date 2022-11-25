@@ -101,14 +101,13 @@ const SignUp = () => {
                         {errors.password && <p className='text-red-600'>{errors.password.message}</p>}
                         <label className="label"><span className="label-text">Fotget password</span> </label>
                     </div>
-                    <input type="submit" className='btn btn-accent text-white w-full' value='Sign Up' />
+                    <input type="submit" className=' btn btn-primary  bg-gradient-to-r from-primary  to-secondary my-2 text-white w-full' value='Sign Up' />
                     <div>
                         {singUpError && <p className='text-red-600'>{singUpError}</p>}
                     </div>
                 </form>
-                <p className='font-bold'>Already have an <Link to='/login' className='text-secondary'> account</Link></p>
-                <div className='divider'>OR</div>
-                <button className='btn  btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <p className='font-bold text-center'>Already have an <Link to='/login' className='text-secondary'> account</Link></p>
+               
             </div>
         </div>
     );

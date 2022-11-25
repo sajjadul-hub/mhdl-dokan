@@ -5,20 +5,34 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useToken from '../../hooks/useToken';
 
 const Login = () => {
+    
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { login } = useContext(AuthContext);
+    const { login,googleLogin } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
     const [token] = useToken(loginUserEmail);
     const location=useLocation();
     const navigate=useNavigate();
-
+    const [user, setUser] = useState({});
     const from=location.state?.form?.pathname || '/';
 
     if (token) {
         navigate(from, { replace: true });
     }
 
+    const handlerGoogleSingIn = () => {
+       googleLogin()
+       .then(result => {
+        const user = result.user;
+        console.log(user);
+        setUser(user)
+        navigate('/');
+    })
+    .catch(error => {
+        console.log(error.message)
+    });
+      }
+console.log(user);
 
     const handleLogin = data => {
         console.log(data);
@@ -61,16 +75,16 @@ const Login = () => {
                         {errors.password && <p className=' text-red-600'>{errors.password?.message}</p>}
                         <label className="label"><span className="label-text">Fotget password</span> </label>
                     </div>
-                    <input type="submit" className='btn btn-accent text-white w-full' value='login' />
+                    <input type="submit" className=' btn btn-primary  bg-gradient-to-r from-primary  to-secondary my-2 text-white w-full' value='login' />
                     <div>
                         {
                             loginError && <p className='text-red-600'>{loginError}</p>
                         }
                     </div>
                 </form>
-                <p className='font-bold'>New to Doctors Portal? <Link to='/signup' className='text-secondary'>Create new account</Link></p>
+                <p className='font-bold text-center'>New to Tech.com? <Link to='/signup' className='text-secondary'>Create new account</Link></p>
                 <div className='divider'>OR</div>
-                <button className='btn  btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <button onClick={handlerGoogleSingIn} className=' btn btn-primary  bg-gradient-to-r from-primary  to-secondary w-full'>CONTINUE WITH GOOGLE</button>
             </div>
         </div>
     );

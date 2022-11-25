@@ -1,9 +1,8 @@
-import { async } from '@firebase/util';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Loading from '../../Shered/Loading/Loading';
 
 const AddDoctor = () => {
@@ -40,6 +39,7 @@ const AddDoctor = () => {
                 specialty: data.specialty,
                 image: imgData.data.url
             }
+            console.log(doctor);
               // save doctor information to the database
               fetch('http://localhost:5000/doctors', {
                 method: 'POST',
@@ -52,8 +52,8 @@ const AddDoctor = () => {
             .then(res => res.json())
             .then(result =>{
                 console.log(result);
-                toast.success(`${data.name} is added successfully`);
-                navigate('/dashboard/managedoctors')
+                toast.success(`${data.name} ,you are seller now`);
+                navigate('/dashboard')
             })
        }
     })
@@ -81,7 +81,7 @@ const AddDoctor = () => {
                         {errors.email && <p className='text-red-600'>{errors.email.message}</p>}
                     </div>
                     <div className="form-control w-full ">
-                        <label className="label"><span className="label-text font-bold">Specialty</span> </label>
+                        <label className="label"><span className="label-text font-bold">Selling Product</span> </label>
                         <select
                             {...register('specialty', { required: "specialty is required" })}
                             className="select input-bordered w-full">

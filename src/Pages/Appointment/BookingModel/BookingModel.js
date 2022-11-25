@@ -38,7 +38,7 @@ const BookingModel = ({ treatment, setTreatment, refetch }) => {
                 console.log(data);
                 if (data.acknowledged) {
                     setTreatment(null);
-                    toast.success('Booking confirmed')
+                    toast.success('product order confirmed')
                 }
                 else{
                     toast.error(data.message)

@@ -10,7 +10,7 @@ const DeshbordLayout = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <hr/>
+            <hr />
             <div className="drawer drawer-mobile mt-5">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
@@ -18,13 +18,15 @@ const DeshbordLayout = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 text-base-content">
-                        <li><Link to='/dashboard'>My Appointments</Link></li>
+                    <ul className="menu p-4 w-80 text-base-content text-bold">
+                        <li><Link className='text-2xl my-3 font-bold' to='/dashboard'>My Orders</Link></li>
+                       {
+                        user&& <li><Link className='text-2xl font-bold my-3' to='/dashboard/adddoctor'>Start as a Seller</Link></li>
+                       }
                         {
                             isAdmin && <>
-                                <li><Link to='/dashboard/allusers'>All users</Link></li>
-                                <li><Link to='/dashboard/adddoctor'>Add A Doctor</Link></li>
-                                <li><Link to='/dashboard/managedoctors'>Manage Doctors</Link></li>
+                                <li><Link className='text-2xl font-bold my-3' to='/dashboard/allusers'>All Buyers</Link></li>
+                                <li><Link className='text-2xl font-bold my-3' to='/dashboard/managedoctors'>Manage Sellers</Link></li>
                             </>
                         }
                     </ul>
