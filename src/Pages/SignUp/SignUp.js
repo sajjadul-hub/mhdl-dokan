@@ -40,7 +40,8 @@ const SignUp = () => {
             })
 
         const saveUser = (name, email) => {
-            const user = { name, email };
+            const role='seller'
+            const user = { name, email,role};
             fetch('http://localhost:5000/users', {
                 method: 'POST',
                 headers: {
@@ -77,7 +78,7 @@ const SignUp = () => {
                 <h2 className='text-2xl font-semibold text-center mb-6'>Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSignUp)} >
                     <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Name</span></label>
+                        <label className="label"> <span className="label-text font-bold">Name</span></label>
                         <input type="text" {...register("name", {
                             required: "Name is Required"
                         })} className="input input-bordered w-full max-w-xs" />

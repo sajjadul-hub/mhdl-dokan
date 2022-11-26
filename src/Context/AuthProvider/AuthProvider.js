@@ -13,7 +13,7 @@ const googleProvider = new GoogleAuthProvider();
         return createUserWithEmailAndPassword(auth, email, password)
     }
    const googleLogin =()=>{
-       signInWithPopup(auth, googleProvider)
+    return  signInWithPopup(auth, googleProvider)
    }
           
 

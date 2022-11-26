@@ -37,7 +37,7 @@ const Item = ({ delait, setTreatment }) => {
             })
     }
     return (
-        <div className="hero shadow-lg my-10">
+        <div className="hero shadow-lg my-10 rounded-xl">
             <div className="hero-content flex-col gap-7 lg:flex-row">
                 <img src={img} className=" w-1/2 rounded-lg" alt='' />
                 <div>

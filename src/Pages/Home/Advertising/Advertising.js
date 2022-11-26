@@ -11,7 +11,7 @@ const Advertising = () => {
     console.log(advertising);
     return (
        <div>
-           <h2 className='text-4xl mt-20 text-center font-simbold'>Here are some top-rating laptop advertising</h2>
+           <h2 className='text-4xl mt-20 text-center font-simbold'>Here are {advertising.length} top-rating laptop advertising</h2>
            <div className='grid gap-6 grid-cols-1 lg:grid-cols-3 md:grid-rows-2'>
            {
                advertising.map(item => <AdvertiseBanner

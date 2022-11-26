@@ -63,9 +63,9 @@ const AddDoctor = () => {
         return <Loading></Loading>
     }
     return (
-        <div >
-            <h2 className='text-3xl font-bold'>Add a New Doctor</h2>
+        <div className='flex flex-row justify-center mt-8'>
             <div className='w-96 p-7 shadow-lg rounded-xl'>
+            <h2 className='text-3xl font-bold'>Start as a Seller</h2>
                 <form onSubmit={handleSubmit(handleAddDoctor)} >
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text font-bold">Name</span></label>
@@ -101,7 +101,7 @@ const AddDoctor = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.img && <p className='text-red-500'>{errors.img.message}</p>}
                     </div>
-                    <input type="submit" className='btn btn-accent text-white w-full mt-4' value='Add' />
+                    <input type="submit" className='btn btn-primary  bg-gradient-to-r from-primary  to-secondary text-white w-full mt-4' value='Add' />
                     <div>
 
                     </div>

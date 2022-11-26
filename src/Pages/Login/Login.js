@@ -5,35 +5,53 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useToken from '../../hooks/useToken';
 
 const Login = () => {
-    
+
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { login,googleLogin } = useContext(AuthContext);
+    const { login, googleLogin } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
-    const [token] = useToken(loginUserEmail);
-    const location=useLocation();
-    const navigate=useNavigate();
-    const [user, setUser] = useState({});
-    const from=location.state?.form?.pathname || '/';
+    const [createUserEmail, setCreateUserEmail] = useState('')
+    const [token] = useToken(loginUserEmail,createUserEmail);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.form?.pathname || '/';
 
     if (token) {
         navigate(from, { replace: true });
     }
 
     const handlerGoogleSingIn = () => {
-       googleLogin()
-       .then(result => {
-        const user = result.user;
-        console.log(user);
-        setUser(user)
-        navigate('/');
-    })
-    .catch(error => {
-        console.log(error.message)
-    });
-      }
-console.log(user);
-
+        googleLogin()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                saveUser(user.email,user.displayName)
+                // if (user) {
+                //     const email = user.email;
+                //     setSocialUser(email)
+                // };
+                navigate('/');
+            })
+            .catch(error => {
+                console.log(error.message)
+            });
+            const saveUser = ( email,displayName) => {
+                const role='buyer';
+                const name=displayName;
+                const user = {  email,name,role };
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        setCreateUserEmail(email)
+                    })
+            }
+    }
     const handleLogin = data => {
         console.log(data);
         setLoginError('');
