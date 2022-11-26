@@ -24,20 +24,25 @@ const DeshbordLayout = () => {
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 text-base-content text-bold">
                         {
-                            isBuyer && <li><Link className='text-2xl my-3 font-bold' to='/dashboard'>My Orders</Link></li>
+                            isBuyer && <li><Link className='text-xl my-3 font-bold' to='/dashboard'>My Orders</Link></li>
                         }
                         {
                             isSeller &&
                             <>
-                                <li><Link className='text-2xl my-3 font-bold' to='/dashboard'>My Orders</Link></li>
-                                <li><Link className='text-2xl my-3 font-bold' to='/dashboard'>My Add products</Link></li>
-                                <li><Link className='text-2xl font-bold my-3' to='/dashboard/adddoctor'>Start as a Seller</Link></li>
+                                <li><Link className='text-xl my-3 font-bold' to='/dashboard'>My Orders</Link></li>
+                                <li><Link className='text-xl my-3 font-bold' to='/dashboard/addproduct'> Add products</Link></li>
+                                <li><Link className='text-xl my-3 font-bold' to='/dashboard/myproduct'> My products</Link></li>
+                                <li><Link className='text-xl font-bold my-3' to='/dashboard/adddoctor'>Start as a Seller</Link></li>
                             </>
                         }
                         {
                             isAdmin && <>
-                                <li><Link className='text-2xl font-bold my-3' to='/dashboard/allusers'>All Buyers</Link></li>
-                                <li><Link className='text-2xl font-bold my-3' to='/dashboard/managedoctors'>Manage Sellers</Link></li>
+                                <li><Link className='text-xl my-3 font-bold' to='/dashboard'>My Orders</Link></li>
+                                <li><Link className='text-xl my-3 font-bold' to='/dashboard/addproduct'>Add products</Link></li>
+                                <li><Link className='text-xl my-3 font-bold' to='/dashboard/myproduct'> My products</Link></li>
+                                <li><Link className='text-xl font-bold my-3' to='/dashboard/adddoctor'>Start as a Seller</Link></li>
+                                <li><Link className='text-xl font-bold my-3' to='/dashboard/allusers'>All Buyers</Link></li>
+                                <li><Link className='text-xl font-bold my-3' to='/dashboard/managedoctors'>Manage Sellers</Link></li>
                             </>
                         }
                     </ul>

@@ -4,6 +4,8 @@ import Main from '../../LayOut/Main';
 import Appointment from '../../Pages/Appointment/Appointment/Appointment';
 import Detail from '../../Pages/Appointment/AvailableAppointments/Detail';
 import AddDoctor from '../../Pages/Dashbord/AddDoctor/AddDoctor';
+import AddProduct from '../../Pages/Dashbord/AddProudet/AddProduct';
+import MyProduct from '../../Pages/Dashbord/AddProudet/MyProduct';
 import AllUsers from '../../Pages/Dashbord/AllUsers/AllUsers';
 import MyAppointment from '../../Pages/Dashbord/Dashbord/MyAppointment/MyAppointment';
 import ManageDoctors from '../../Pages/Dashbord/ManageDoctors/ManageDoctors';
@@ -63,6 +65,14 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/allusers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+                path: '/dashboard/addproduct',
+                element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+            },
+            {
+                path: '/dashboard/myproduct',
+                element: <PrivateRoute><MyProduct></MyProduct></PrivateRoute>
             },
             {
                 path: '/dashboard/adddoctor',
