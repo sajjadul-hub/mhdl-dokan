@@ -3,15 +3,16 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const AdvertiseBanner = ({ item }) => {
-    const{user}=useContext(AuthContext);
-    const { title, img,price,details,name } = item
-    const handleBooking = ()=> {
+    const { user } = useContext(AuthContext);
+    const { title, img, price, details, name, resalePrice, condition, location } = item
+    console.log(resalePrice, price, condition);
+    const handleBooking = () => {
 
         const booking = {
-            buyerName:user.displayName,
-            email:user.email,
-            laptopName:title,
-            price
+            buyerName: user.displayName,
+            email: user.email,
+            laptopName: title,
+            resalePrice
         }
         console.log(booking);
         //Todo: send data to the server
@@ -30,7 +31,7 @@ const AdvertiseBanner = ({ item }) => {
                 if (data.acknowledged) {
                     toast.success('product order confirmed')
                 }
-                else{
+                else {
                     toast.error(data.message)
                 }
             })
@@ -42,11 +43,17 @@ const AdvertiseBanner = ({ item }) => {
                 <h2 className="card-title font-bold text-2xl">{title
                 }</h2>
                 <p>{details}</p>
-               <div className='flex justify-between'>
-               <p className='font-bold text-xl'>price: ${price}</p>
-                <p className='font-bold text-xl'>Seller name: {name}</p>
-               </div>
+                <div className='flex justify-between'>
+                    <div>
+                        <p className='font-bold text-xl'>price:<del>  ${price}</del></p>
+                        <p className='font-bold text-xl'>Resale price: ${resalePrice}</p>
+                    </div>
+                    <div>
+                        <p className='font-bold text-xl'>Seller name: {name}</p>
+                    </div>
+                </div>
                 <div className="card-actions ">
+                    <p className='font-bold text-xl'>Location: {location}</p>
                     <button onClick={handleBooking} className="btn btn-primary">Order Now</button>
                 </div>
             </div>

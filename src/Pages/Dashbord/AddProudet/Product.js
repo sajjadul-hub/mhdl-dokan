@@ -2,7 +2,7 @@ import React from 'react';
 import toast from 'react-hot-toast';
 
 const Product = ({item,setproducts}) => {
-    const{specialty,image,condition,details,location,date,name,price}=item;
+    const{specialty,image,condition,details,location,date,name,price,resalePrice}=item;
     const handlerAdvertising=()=>{
         // console.log('loolo');
         const booking = {
@@ -11,6 +11,9 @@ const Product = ({item,setproducts}) => {
            img:image,
             price,
             details,
+            resalePrice,
+            date,
+            location,
         }
         //Todo: send data to the server
         //and once data is saved then close the model
@@ -37,10 +40,16 @@ const Product = ({item,setproducts}) => {
         <div className="card  bg-base-100 shadow-xl">
              <figure><img src={image} alt="" style={{height:'200px'}} className='w-full' /></figure>
             <div className="card-body">
-             <div className='flex lg:gap-12 mb-5'>
-              <h2 className="card-title">
+            <h2 className=" text-center text-2xl font-bold">
                     {specialty}
-                    <div className="badge badge-secondary">${price}</div>
+                </h2>
+             <div className='flex lg:gap-12 mb-5'>
+                <h2 className='card-title'>
+                <div className="badge badge-secondary">
+                        <del>
+                        ${price}
+                        </del></div>
+                    <div className="badge badge-secondary">${resalePrice}</div>
                 </h2>
                 <p className="bg-primary rounded-lg px-1"><b>condition:</b>{condition}</p>
               </div>
