@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Product = ({product}) => {
-    const{specialty,image,condition,details,location,date,name,price}=product;
+const Product = ({item}) => {
+    const{specialty,image,condition,details,location,date,name,price}=item;
     return (
         <div className="card  bg-base-100 shadow-xl">
-            <figure><img src={image} alt="" style={{height:'200px'}} /></figure>
+             <figure><img src={image} alt="" style={{height:'200px'}} /></figure>
             <div className="card-body">
-              <div className='flex lg:gap-16'>
+             <div className='flex lg:gap-12'>
               <h2 className="card-title">
                     {specialty}
                     <div className="badge badge-secondary">${price}</div>
@@ -21,7 +21,7 @@ const Product = ({product}) => {
                     <div className="badge badge-outline font-bold">{location}</div>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     );
 };
