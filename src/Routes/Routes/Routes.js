@@ -43,7 +43,7 @@ const router = createBrowserRouter([
 
             },
             {
-                path: '/appointment',
+                path: '/services',
                 element: <Appointment></Appointment>
             },
             {

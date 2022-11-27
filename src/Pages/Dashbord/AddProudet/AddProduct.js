@@ -42,7 +42,8 @@ const AddProduct = () => {
                         condition:data.condition,
                         details: data.Detail,
                         location:data.location,
-                        date:data.date
+                        date:data.date,
+                        resalePrice:data.resaleprice
                     }
                     console.log(doctor);
                     // save doctor information to the database
@@ -111,19 +112,20 @@ const AddProduct = () => {
                         </div>
                     </div>
                     <div className='lg:flex gap-4'>
-                        <div className="form-controls">
-                            <label className="label"> <span className="label-text font-bold">Price :</span></label>
-                            <input type="number" {...register("price", {
-                                required: "price is Required"
-                            })} className="input input-bordered w-full " />
-                            {errors.price && <p className='text-red-500'>{errors.price.message}</p>}
-                        </div>
+                    <div className="form-controls">
+                        <label className="label"> <span className="label-text font-bold">Purchase Product Date :</span></label>
+                        <input type="date" {...register("date", {
+                            required: "date is Required"
+                        })} className="input input-bordered w-full " />
+                        {errors.date && <p className='text-red-500'>{errors.date.message}</p>}
+                    </div>
+                        
                         <div className="form-control w-full ">
                             <label className="label"><span className="label-text font-bold">Product Condition :</span> </label>
                             <select
                                 {...register('condition', { required: "condition is required" })}
                                 className="select input-bordered w-full">
-                                <option>Excellent</option>
+                                <option selected>Excellent</option>
                                 <option>Good</option>
                                 <option>Fair</option>
                             </select>
@@ -141,7 +143,7 @@ const AddProduct = () => {
                    
 
 
-                    <div className='lg:flex gap-4'>
+                    <div>
                     <div className="form-controls">
                         <label className="label"> <span className="label-text font-bold">Location :</span></label>
                         <input type="text" {...register("location", {
@@ -149,13 +151,22 @@ const AddProduct = () => {
                         })} className="input input-bordered w-full " />
                         {errors.location && <p className='text-red-500'>{errors.location.message}</p>}
                     </div>
-                    <div className="form-controls">
-                        <label className="label"> <span className="label-text font-bold">Date :</span></label>
-                        <input type="date" {...register("date", {
-                            required: "date is Required"
-                        })} className="input input-bordered w-full " />
-                        {errors.date && <p className='text-red-500'>{errors.date.message}</p>}
                     </div>
+                    <div className='lg:flex gap-4'>
+                    <div className="form-controls">
+                            <label className="label"> <span className="label-text font-bold"> Original Price :</span></label>
+                            <input type="number" {...register("price", {
+                                required: "price is Required"
+                            })} className="input input-bordered w-full " />
+                            {errors.price && <p className='text-red-500'>{errors.price.message}</p>}
+                        </div>
+                        <div className="form-controls">
+                            <label className="label"> <span className="label-text font-bold">Resale Price :</span></label>
+                            <input type="number" {...register("resaleprice", {
+                                required: "resaleprice is Required"
+                            })} className="input input-bordered w-full " />
+                            {errors.resaleprice && <p className='text-red-500'>{errors.resaleprice.message}</p>}
+                        </div>
                     </div>
                     <input type="submit" className='btn btn-primary  bg-gradient-to-r from-primary  to-secondary text-white w-full mt-4' value='Add' />
                     <div>

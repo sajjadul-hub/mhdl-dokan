@@ -1,8 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
-import Item from '../../Appointment/AvailableAppointments/Item';
 import Product from './Product';
 
 const MyProduct = () => {
@@ -20,7 +17,7 @@ const MyProduct = () => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {
-                products.map(item=><Product key={item._id} item={item}></Product>)
+                products.map(item=><Product key={item._id} item={item} setproducts={setproducts}></Product>)
             }
         </div>
     );

@@ -35,11 +35,11 @@ const InfoCards = () => {
                     cardData.map(card => <InfoCard key={card.id} card={card}></InfoCard>)
                 }
             </div>
-            <div className='rounded-lg bg-blue-400 flex flex-col justify-center items-center'>
-                <h2 className='text-5xl text-white font-bold'>Text us to sell</h2>
+            <div className='rounded-lg bg-white shadow-lg flex flex-col justify-center items-center'>
+                <h2 className='text-5xl text-primary font-bold'>Text us to sell</h2>
                 <h2 className='text-4xl font-semibold my-7'>(312) 588-6220</h2>
                 <p className='text-xl'>(Text messages only. No phone calls.)</p>
-                <p className='my-3 text-xl text-white font-bold'>Message us via</p>
+                <p className='my-3 text-xl text-primary font-bold'>Message us via</p>
                 <PrimaryButten>Facebook Messenger</PrimaryButten>
 
             </div>

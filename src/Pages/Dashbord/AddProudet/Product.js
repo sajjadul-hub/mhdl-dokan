@@ -35,9 +35,9 @@ const Product = ({item,setproducts}) => {
     }
     return (
         <div className="card  bg-base-100 shadow-xl">
-             <figure><img src={image} alt="" style={{height:'200px'}} /></figure>
+             <figure><img src={image} alt="" style={{height:'200px'}} className='w-full' /></figure>
             <div className="card-body">
-             <div className='flex lg:gap-12'>
+             <div className='flex lg:gap-12 mb-5'>
               <h2 className="card-title">
                     {specialty}
                     <div className="badge badge-secondary">${price}</div>
@@ -45,15 +45,15 @@ const Product = ({item,setproducts}) => {
                 <p className="bg-primary rounded-lg px-1"><b>condition:</b>{condition}</p>
               </div>
                 <p>{details}</p>
-                <div className="card-actions justify-end gap-3">
+                <div className="card-actions gap-3">
                 
-                    <div className='card-actions justify-between'>
+                    <div className='card-actions justify-between mt-5'>
                     <div className="badge badge-outline">{date}</div>
-                    <div className="badge badge-outline font-bold">{location}</div>
+                    <div className="badge badge-outline font-bold ">{location}</div>
                     </div>
                 </div>
                 <label onClick={handlerAdvertising}
-                                className="btn btn-primary text-white">Click for Advertising</label>
+                                className="btn btn-primary text-white mt-4">Click for Advertising</label>
             </div> 
         </div>
     );

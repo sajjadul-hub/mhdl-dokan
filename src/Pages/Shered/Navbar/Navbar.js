@@ -10,25 +10,25 @@ const Navbar = () => {
       .catch(err => console.log(err));
   }
   const menuItems = <React.Fragment>
-    <li><Link to='/'>Home</Link></li>
-    <li><Link to='/appointment'>Services</Link></li>
-    <li><Link to='/blog'>Blog</Link></li>
+    <li><Link to='/' className=' rounded-lg font-semibold btn btn-ghost normal-case'>Home</Link></li>
+    <li><Link to='/services' className=' font-semibold btn btn-ghost normal-case'>Products</Link></li>
+    <li><Link to='/blog' className=' font-semibold btn btn-ghost normal-case'>Blog</Link></li>
 
     {
       user?.uid ?
         <>
-          <li><Link to='/dashboard'>Dashboard</Link></li>
-          <li><button onClick={handleLogOut}>Log Out</button></li>
-          <li><p>{user?.displayName}</p></li>
+          <li><Link to='/dashboard' className=' font-semibold btn btn-ghost normal-case '>Dashboard</Link></li>
+          <li><button onClick={handleLogOut} className=' font-semibold btn btn-ghost normal-case'>Log Out</button></li>
+          <li><p className=' font-semibold btn btn-ghost normal-case rounded-lg'>{user?.displayName}</p></li>
         </>
         : <>
-          <li><Link to='/login'>Login</Link></li>
-          <li><Link to='/signup'>Sign Up</Link></li>
+          <li><Link to='/login' className=' font-semibold btn btn-ghost normal-case'>Login</Link></li>
+          <li><Link to='/signup' className=' font-semibold btn btn-ghost normal-case rounded-lg'>Sign Up</Link></li>
         </>
     }
   </React.Fragment>
   return (
-    <div className="navbar bg-base-100 flex justify-between ">
+    <div className="navbar bg-gradient-to-r from-primary to-secondary flex justify-between rounded-xl">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

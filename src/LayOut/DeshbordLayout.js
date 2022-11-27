@@ -12,7 +12,7 @@ const DeshbordLayout = () => {
     const [isSeller] = useSeller(user?.email)
     const [isBuyer] = useBuyer(user?.email)
     return (
-        <div>
+        <div >
             <Navbar></Navbar>
             <hr />
             <div className="drawer drawer-mobile mt-5">
@@ -41,7 +41,7 @@ const DeshbordLayout = () => {
                                 <li><Link className='text-xl my-3 font-bold' to='/dashboard/addproduct'>Add products</Link></li>
                                 <li><Link className='text-xl my-3 font-bold' to='/dashboard/myproduct'> My products</Link></li>
                                 <li><Link className='text-xl font-bold my-3' to='/dashboard/adddoctor'>Start as a Seller</Link></li>
-                                <li><Link className='text-xl font-bold my-3' to='/dashboard/allusers'>All Buyers</Link></li>
+                                <li><Link className='text-xl font-bold my-3' to='/dashboard/allusers'>All Buyers and Sellers</Link></li>
                                 <li><Link className='text-xl font-bold my-3' to='/dashboard/managedoctors'>Manage Sellers</Link></li>
                             </>
                         }
