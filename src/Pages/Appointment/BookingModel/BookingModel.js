@@ -23,7 +23,6 @@ const BookingModel = ({ treatment, setTreatment, refetch }) => {
             laptopName,
             price
         }
-        console.log(booking);
         //Todo: send data to the server
         //and once data is saved then close the model
         // and display success toast  
@@ -36,7 +35,6 @@ const BookingModel = ({ treatment, setTreatment, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.acknowledged) {
                     setTreatment(null);
                     toast.success('product order confirmed')
