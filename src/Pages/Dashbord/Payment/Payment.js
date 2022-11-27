@@ -9,14 +9,14 @@ console.log(stripePromise);
 const Payment = () => {
     const booking=useLoaderData();
     const navigation=useNavigation();
-    const {treatment,price,appointmentDate,slot}=booking;
+    const {treatment,price}=booking;
     if(navigation.state==='loading'){
         return<Loading></Loading>
     }
     return (
-        <div>
+        <div className=' bg-amber-200 shadow-xl py-6 px-7 w-1/2 rounded-xl'>
             <h3 className='text-3xl'>Payment for {treatment}</h3>
-            <p className='text-xl'>Please pay <strong>${price}</strong> for your appointment on {appointmentDate} at {slot}</p>
+            <p className='text-xl'>Please pay <strong>${price}</strong> for your product</p>
        <div className='w-96 my-6'>
        <Elements stripe={stripePromise}>
       <CheckoutFrom

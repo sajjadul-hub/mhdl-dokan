@@ -8,7 +8,6 @@ const Advertising = () => {
             .then(res => res.json())
             .then(data => setAdvertising(data))
     }, [])
-    console.log(advertising);
     return (
        <div>
            <h2 className='text-5xl mt-20 mb-6 text-center font-bold

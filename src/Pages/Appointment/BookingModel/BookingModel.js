@@ -1,6 +1,7 @@
 
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { FaSmile } from 'react-icons/fa';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const BookingModel = ({ treatment, setTreatment, refetch }) => {
@@ -52,7 +53,11 @@ const BookingModel = ({ treatment, setTreatment, refetch }) => {
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor="booking-model" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-xl font-bold text-center">{title}</h3>
+                    <div className='flex bg-primary rounded-xl justify-center gap-3 py-2'>
+                    <FaSmile style={{height:'27px',width:'25px'}} className='text-yellow-100'></FaSmile>
+                    <h3 className="text-xl font-bold text-center ">{title}</h3>
+                    <FaSmile style={{height:'27px',width:'25px'}} className='text-yellow-100'></FaSmile>
+                    </div>
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
                         <input type='text' name="laptopName" disabled value={title} className="input input-bordered w-full font-bold" />
                         <input type='number' name="price" disabled value={price} className="input input-bordered w-full font-bold" />

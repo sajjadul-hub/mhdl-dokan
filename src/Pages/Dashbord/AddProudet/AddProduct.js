@@ -32,7 +32,6 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(imgData => {
                 if (imgData.success) {
-                    console.log(imgData.data.url);
                     const doctor = {
                         name: data.name,
                         email: data.email,
@@ -45,7 +44,6 @@ const AddProduct = () => {
                         date:data.date,
                         resalePrice:data.resaleprice
                     }
-                    console.log(doctor);
                     // save doctor information to the database
                     fetch('http://localhost:5000/products', {
                         method: 'POST',

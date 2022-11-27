@@ -24,7 +24,6 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
-                console.log(user);
                 saveUser(user.email,user.displayName)
                 // if (user) {
                 //     const email = user.email;
@@ -53,7 +52,6 @@ const Login = () => {
             }
     }
     const handleLogin = data => {
-        console.log(data);
         setLoginError('');
         login(data.email, data.password)
             .then(result => {

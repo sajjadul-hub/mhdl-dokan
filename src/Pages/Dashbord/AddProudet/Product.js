@@ -4,7 +4,6 @@ import toast from 'react-hot-toast';
 const Product = ({item,setproducts}) => {
     const{specialty,image,condition,details,location,date,name,price,resalePrice}=item;
     const handlerAdvertising=()=>{
-        // console.log('loolo');
         const booking = {
            name,
            title:specialty,

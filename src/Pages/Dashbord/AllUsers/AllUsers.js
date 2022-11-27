@@ -46,7 +46,7 @@ const AllUsers = () => {
   }
     return (
         <div>
-            <h2 className="text-4xl text-center font-bold my-5 ">All buyers</h2>
+            <h2 className="text-4xl text-center font-bold my-5 ">All buyers and Sellers : {users.length}</h2>
             <div className="overflow-x-auto">
   <table className="table w-full">
     <thead>

@@ -10,7 +10,7 @@ const AppointmenOption = ({ appointmenOption }) => {
                 <h2 className="text-3xl font-bold">{name}</h2>
                 <p>{Description}</p>
                 <div className="card-actions justify-center">
-                    <button  className="btn btn-primary text-white"><Link to={`/detail/${id}`}>See Details</Link></button>
+                    <button  className="btn btn-primary text-white w-full"><Link to={`/detail/${id}`}>See Details</Link></button>
                 </div>
             </div>
         </div>

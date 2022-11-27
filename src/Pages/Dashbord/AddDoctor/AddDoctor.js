@@ -39,7 +39,7 @@ const AddDoctor = () => {
                 specialty: data.specialty,
                 image: imgData.data.url
             }
-            console.log(doctor);
+         
               // save doctor information to the database
               fetch('http://localhost:5000/doctors', {
                 method: 'POST',
@@ -51,7 +51,6 @@ const AddDoctor = () => {
             })
             .then(res => res.json())
             .then(result =>{
-                console.log(result);
                 toast.success(`${data.name} ,you are seller now`);
                 navigate('/dashboard')
             })

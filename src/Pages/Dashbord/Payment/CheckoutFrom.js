@@ -73,7 +73,6 @@ const CheckoutFrom = ({ booking }) => {
             };
             
             if (paymentIntent.status === "succeeded") {
-                console.log('card info', card);
                 // store payment info in the database
                 const payment = {
                     price,
@@ -121,7 +120,7 @@ const CheckoutFrom = ({ booking }) => {
                     }}
                 />
                 <button
-                    className='btn btn-sm mt-4 btn-primary'
+                    className='btn btn-sm mt-4 btn-secondary w-20'
                     type="submit"
                     disabled={!stripe || !clientSecret||processing}>
                     Pay

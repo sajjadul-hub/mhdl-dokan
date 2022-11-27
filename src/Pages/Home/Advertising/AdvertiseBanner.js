@@ -5,7 +5,6 @@ import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 const AdvertiseBanner = ({ item }) => {
     const { user } = useContext(AuthContext);
     const { title, img, price, details, name, resalePrice, condition, location } = item
-    console.log(resalePrice, price, condition);
     const handleBooking = () => {
 
         const booking = {
@@ -14,7 +13,6 @@ const AdvertiseBanner = ({ item }) => {
             laptopName: title,
             resalePrice
         }
-        console.log(booking);
         //Todo: send data to the server
         //and once data is saved then close the model
         // and display success toast  
