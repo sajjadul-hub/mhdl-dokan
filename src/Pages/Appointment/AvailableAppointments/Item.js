@@ -6,36 +6,7 @@ import { FaEye, FaStar } from 'react-icons/fa';
 const Item = ({ delait, setTreatment }) => {
     const { details, title, img, price, rating, total_view
     } = delait;
-    const handlerAdvertising=()=>{
-        // console.log('loolo');
-        const booking = {
-            title,
-            img,
-            price,
-            details,
-        }
-        //Todo: send data to the server
-        //and once data is saved then close the model
-        // and display success toast  
-        fetch('http://localhost:5000/advertising', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(booking)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.acknowledged) {
-                    setTreatment(null);
-                    toast.success('product advertising confirmed')
-                }
-                else{
-                    toast.error(data.message)
-                }
-            })
-    }
+   
     return (
         <div className="hero shadow-lg my-10 rounded-xl">
             <div className="hero-content flex-col gap-7 lg:flex-row">
@@ -53,12 +24,6 @@ const Item = ({ delait, setTreatment }) => {
                             onClick={() => setTreatment(delait)}
                             htmlFor="booking-model"
                             className="btn btn-primary text-white">Buy Now</label>
-                        
-
-                            <label onClick={handlerAdvertising}
-                                className="btn btn-primary text-white">Click for Advertising</label>
-                        
-
                     </div>
                 </div>
             </div>
