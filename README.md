@@ -5,10 +5,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
-### `Welcome to Talimul Github readme.file `###
+### `Welcome to Talimul Github readme.file `
 This is website Which made for Resale product .It about laptop website .There are tree type of categroy user .There are buyer,seller and admin.buyer buy only ,seller can buy the product and also sell and finally admin who can control alluser access and  verification user add and delect etc...............................  
 ### `Admin Email and Password :`
-Email: wab@gmail.com
+Email: wab@gmail.com 
 Password: 123456.
 
 ### `Code link : `
