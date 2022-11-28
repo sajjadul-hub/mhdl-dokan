@@ -11,13 +11,21 @@ This is website Which made for Resale product .It about laptop website .There ar
 Email: wab@gmail.com 
 Password: 123456.
 
-### `Code link : `
+### `ciliet Code link : `
+
+Open [https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-Talimul212](https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-Talimul212) to view it in your browser.
 
 
-### `Server link : `
+
+### `Server code link : `
+Open [https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-Talimul212](https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-Talimul212) to view it in your browser.
 
 
-### `Live link : `
+
+### `Live website link : `
+Open [https://flourishing-gecko-8cb030.netlify.app/](https://flourishing-gecko-8cb030.netlify.app/) to view it in your browser.
+
+
 
 ### `npm start`
 
