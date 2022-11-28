@@ -17,7 +17,7 @@ const Product = ({item,setproducts}) => {
         //Todo: send data to the server
         //and once data is saved then close the model
         // and display success toast  
-        fetch('http://localhost:5000/advertising', {
+        fetch('https://tech-com-server.vercel.app/advertising', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

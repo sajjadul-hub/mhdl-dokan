@@ -9,7 +9,7 @@ const AvailableAppointments = ({ selectedDate }) => {
     const { data: appointmenOptions = [], isLoading } = useQuery({
         queryKey: ['appointmentOptions', date],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/appointmentOptions')
+            const res = await fetch('https://tech-com-server.vercel.app/appointmentOptions')
             const data = await res.json();
             return data;
         }

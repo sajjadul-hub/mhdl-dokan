@@ -1,12 +1,31 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 const AllReportsProducts = () => {
     const[reportedItems,setReportedItems]=useState('');
+    const{user}=useContext(AuthContext);
     useEffect(()=>{
-        fetch('http://localhost:5000/reports')
+        fetch('https://tech-com-server.vercel.app/reports')
         .then(res=>res.json())
         .then(data=>setReportedItems(data))
     },[])
+
+
+    const handleDeleteBuyers = user => {
+        fetch(`https://tech-com-server.vercel.app/reports/${user._id}`, {
+            method: 'DELETE', 
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount > 0){
+                toast.success(`Reported product ${user?.laptopName} deleted successfully`)
+                setReportedItems('');
+            }
+        })
+    }
     return (
         <div>
         <h3 className='text-4xl mb-5 text-center font-bold '>All Reported Product :{reportedItems.length}</h3>
@@ -30,11 +49,8 @@ const AllReportsProducts = () => {
                                 <td>{reportedItems.buyerName}</td>
                                 <td>{reportedItems.laptopName}</td>
                                 <td>${reportedItems.price}</td>
-                                <td><button className='btn btn-primary '>Delete</button></td>
+                                <td>{ user?.role !== 'admin'&&<button onClick={() => handleDeleteBuyers(reportedItems)} className='btn btn-xs btn-danger'>Delete</button>}</td>
                             </tr>)
-                    }
-                    {
-                        // data.map()
                     }
                 </tbody>
             </table>

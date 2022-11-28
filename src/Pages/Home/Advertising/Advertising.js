@@ -4,7 +4,7 @@ import AdvertiseBanner from './AdvertiseBanner';
 const Advertising = () => {
     const [advertising, setAdvertising] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/advertising')
+        fetch('https://tech-com-server.vercel.app/advertising')
             .then(res => res.json())
             .then(data => setAdvertising(data))
     }, [])

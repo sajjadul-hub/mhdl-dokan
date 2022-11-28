@@ -6,7 +6,7 @@ import { AuthContext } from '../../../../Context/AuthProvider/AuthProvider';
 const MyAppointment = () => {
     const { user } = useContext(AuthContext);
     
-    const url = `http://localhost:5000/booking?email=${user?.email}`;
+    const url = `https://tech-com-server.vercel.app/booking?email=${user?.email}`;
 
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
@@ -31,7 +31,7 @@ const MyAppointment = () => {
         //Todo: send data to the server
         //and once data is saved then close the model
         // and display success toast  
-        fetch('http://localhost:5000/reports', {
+        fetch('https://tech-com-server.vercel.app/reports', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
