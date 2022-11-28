@@ -6,6 +6,7 @@ import Detail from '../../Pages/Appointment/AvailableAppointments/Detail';
 import AddDoctor from '../../Pages/Dashbord/AddDoctor/AddDoctor';
 import AddProduct from '../../Pages/Dashbord/AddProudet/AddProduct';
 import MyProduct from '../../Pages/Dashbord/AddProudet/MyProduct';
+import AllReportsProducts from '../../Pages/Dashbord/AllReportsProducts/AllReportsProducts';
 import AllUsers from '../../Pages/Dashbord/AllUsers/AllUsers';
 import MyAppointment from '../../Pages/Dashbord/Dashbord/MyAppointment/MyAppointment';
 import ManageDoctors from '../../Pages/Dashbord/ManageDoctors/ManageDoctors';
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/managedoctors',
                 element: <AdminRoute><ManageDoctors></ManageDoctors></AdminRoute>
+            },
+            {
+                path: '/dashboard/reports',
+                element: <AdminRoute><AllReportsProducts></AllReportsProducts></AdminRoute>
             },
             {
                 path: '/dashboard/payment/:id',
